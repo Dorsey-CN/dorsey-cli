@@ -1,9 +1,10 @@
 {
-  "name": "dorsey-cli",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "dorsey-cli-cn",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "lerna": "^5.4.0"
   },

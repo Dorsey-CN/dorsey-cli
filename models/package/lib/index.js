@@ -5,6 +5,7 @@ const pkgDir = require("pkg-dir").sync;
 const npminstall = require("npminstall");
 const pathExists = require("path-exists").sync;
 const fse = require("fs-extra");
+const log = require("@dorsey-cli/log");
 const { isObject } = require("@dorsey-cli/utils");
 const pathFormat = require("@dorsey-cli/path-format");
 const {
@@ -19,13 +20,11 @@ class Package {
   constructor(options) {
     if (!options) {
       throw new Error("Package类的构造函数参数options不能为空");
-      return;
     }
     if (!isObject(options)) {
       throw new Error("Package类的构造函数参数options必须为object类型");
-      return;
     }
-    console.log(options);
+    log.verbose(JSON.stringify(options));
     // package目标路径
     this.targetPath = options.targetPath;
     // 缓存package的路径
@@ -107,7 +106,14 @@ class Package {
   getRootFilePath() {
     function _getRootFilePath(targetPath) {
       // 1.找到package.json所在目录
-      const pkgRoots = pkgDir(targetPath);
+      let pkgRoots = pkgDir(targetPath);
+      // 由于pkg-dir只能向上层目录回溯，故为某些安装包有一层子目录做兼容
+      if (!pkgRoots) {
+        const childDir = fse.readdirSync(targetPath);
+        if (childDir && childDir.length > 0) {
+          pkgRoots = pkgDir(path.resolve(targetPath, childDir[0]));
+        }
+      }
       if (pkgRoots) {
         // 2.获取package.json文件
         const pkgFile = require(path.join(pkgRoots, "package.json"));

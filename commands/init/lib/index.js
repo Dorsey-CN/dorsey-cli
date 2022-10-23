@@ -165,6 +165,19 @@ class InitCommand extends Command {
     return this.getProjectInfo();
   }
 
+  // 自定义spinner
+  async customSpinner(event, excuteInfo) {
+    const spinner = spinnerStart(excuteInfo);
+    await sleep();
+    try {
+      await event();
+    } catch (err) {
+      throw err;
+    } finally {
+      spinner.stop(true);
+    }
+  }
+
   // 获取项目基本信息
   async getProjectInfo() {
     // 判断输入的项目名称是否符合规范
@@ -308,29 +321,13 @@ class InitCommand extends Command {
       });
       const isExist = await templateNpm.exist();
       if (!isExist) {
-        const spinner = spinnerStart("正在下载模板...");
-        await sleep();
-        try {
-          await templateNpm.install();
-        } catch (err) {
-          throw err;
-        } finally {
-          spinner.stop(true);
-          if (await templateNpm.exist()) log.success("模板下载成功");
-          this.templateNpm = templateNpm;
-        }
+        await this.customSpinner("正在下载模板...", templateNpm.install);
+        if (await templateNpm.exist()) log.success("模板下载成功");
+        this.templateNpm = templateNpm;
       } else {
-        const spinner = spinnerStart("正在更新模板...");
-        await sleep();
-        try {
-          await templateNpm.update();
-        } catch (err) {
-          throw err;
-        } finally {
-          spinner.stop(true);
-          if (await templateNpm.exist()) log.success("模板更新成功");
-          this.templateNpm = templateNpm;
-        }
+        await this.customSpinner("正在更新模板...", templateNpm.update);
+        if (await templateNpm.exist()) log.success("模板更新成功");
+        this.templateNpm = templateNpm;
       }
     }
   }

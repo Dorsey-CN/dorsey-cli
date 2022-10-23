@@ -27,10 +27,10 @@
     "url": "https://github.com/Dorsey-CN/dorsey-cli/issues"
   },
   "dependencies": {
-    "@dorsey-cli-cn/get-npm-info": "^1.0.3",
-    "@dorsey-cli-cn/log": "^1.0.2",
-    "@dorsey-cli-cn/path-format": "^1.0.2",
-    "@dorsey-cli-cn/utils": "^1.0.2",
+    "@dorsey-cli/get-npm-info": "^1.0.3",
+    "@dorsey-cli/log": "^1.0.2",
+    "@dorsey-cli/path-format": "^1.0.2",
+    "@dorsey-cli/utils": "^1.0.2",
     "fs-extra": "^10.1.0",
     "npminstall": "^6.5.1",
     "path-exists": "^4.0.0",

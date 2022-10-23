@@ -1,6 +1,6 @@
 {
   "name": "@dorsey-cli/core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "cli core",
   "author": "dorsey <406100205@qq.com>",
   "homepage": "https://github.com/Dorsey-CN/dorsey-cli#readme",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@dorsey-cli/exec": "^1.0.3",
     "@dorsey-cli/get-npm-info": "^1.0.0",
-    "@dorsey-cli/init": "^1.0.3",
+    "@dorsey-cli/init": "^1.0.4",
     "@dorsey-cli/log": "^1.0.0",
     "colors": "^1.4.0",
     "commander": "^9.4.1",

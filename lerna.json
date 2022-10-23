@@ -3,5 +3,5 @@
   "useNx": true,
   "useWorkspaces": false,
   "packages": ["core/*", "commands/*", "models/*", "utils/*"],
-  "version": "independent"
+  "version": "1.0.0"
 }

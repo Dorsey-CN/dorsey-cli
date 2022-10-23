@@ -25,5 +25,13 @@
   },
   "bugs": {
     "url": "https://github.com/Dorsey-CN/dorsey-cli/issues"
+  },
+  "dependencies": {
+    "@dorsey-cli-cn/log": "^1.0.2",
+    "colors": "^1.4.0",
+    "semver": "^7.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.0"
   }
 }

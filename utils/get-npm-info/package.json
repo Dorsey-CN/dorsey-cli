@@ -1,0 +1,37 @@
+{
+  "name": "@dorsey-cli/get-npm-info",
+  "version": "1.0.0",
+  "description": "utils get-npm-info",
+  "author": "dorsey <406100205@qq.com>",
+  "homepage": "https://github.com/Dorsey-CN/dorsey-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorsey-CN/dorsey-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@dorsey-cli/get-npm-info.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Dorsey-CN/dorsey-cli/issues"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "semver": "^7.3.7",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.0"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@dorsey-cli/init",
+  "version": "1.0.0",
+  "description": "init command",
+  "author": "dorsey <406100205@qq.com>",
+  "homepage": "https://github.com/Dorsey-CN/dorsey-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorsey-CN/dorsey-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@dorsey-cli/init.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Dorsey-CN/dorsey-cli/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.0"
+  },
+  "dependencies": {
+    "@dorsey-cli/command": "^1.0.0",
+    "@dorsey-cli/log": "^1.0.0",
+    "@dorsey-cli/package": "^1.0.0",
+    "@dorsey-cli/request": "^1.0.0",
+    "@dorsey-cli/utils": "^1.0.0",
+    "ejs": "^3.1.8",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "inquirer": "^8.0.0",
+    "kebab-case": "^1.0.2",
+    "semver": "^7.3.7"
+  }
+}

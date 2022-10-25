@@ -22,7 +22,7 @@ async function exec() {
     const currentCmd = commandInfo.find(
       (item) => item.name === arguments[arguments.length - 1].name()
     );
-    pkgName = currentCmd ? currentCmd.name : "";
+    pkgName = currentCmd ? currentCmd.npmName : "";
   }
   if (!pkgName) throw new Error("未找到对应的命令Package");
   const pkgVersion = "latest";

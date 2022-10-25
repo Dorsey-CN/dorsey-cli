@@ -29,7 +29,8 @@
   "dependencies": {
     "@dorsey-cli/log": "^1.0.0",
     "@dorsey-cli/package": "^1.0.3",
-    "@dorsey-cli/utils": "^1.0.0"
+    "@dorsey-cli/utils": "^1.0.0",
+    "@dorsey-cli/request": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.8.0"

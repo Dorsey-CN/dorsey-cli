@@ -6,11 +6,7 @@ const cp = require("child_process");
 const Package = require("@dorsey-cli/package");
 const log = require("@dorsey-cli/log");
 const { execAsync } = require("@dorsey-cli/utils");
-
-// 命令name与脚手架包名name映射表
-const SETTINGS = {
-  init: "@dorsey-cli/init",
-};
+const getCommandInfo = require("./get-command-info");
 
 const CACHE_DIR = "dependencies";
 
@@ -19,8 +15,16 @@ async function exec() {
   const homePath = process.env.CLI_HOME_PATH;
   let targetPath = process.env.CLI_TARGET_PATH;
   let storeDir = "";
-  // 此处的pkgName最好要通过命令name通过接口获取，下面处理是降级处理
-  const pkgName = SETTINGS[arguments[arguments.length - 1].name()];
+  const commandInfo = await getCommandInfo();
+  let pkgName = "";
+  // 通过数据里面存储的命令映射数据筛选出对应的packageName
+  if (commandInfo && Array.isArray(commandInfo)) {
+    const currentCmd = commandInfo.find(
+      (item) => item.name === arguments[arguments.length - 1].name()
+    );
+    pkgName = currentCmd ? currentCmd.name : "";
+  }
+  if (!pkgName) throw new Error("未找到对应的命令Package");
   const pkgVersion = "latest";
   let pkg;
 

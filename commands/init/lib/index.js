@@ -166,7 +166,7 @@ class InitCommand extends Command {
   }
 
   // 自定义spinner
-  async customSpinner(event, excuteInfo) {
+  async customSpinner(excuteInfo, event) {
     const spinner = spinnerStart(excuteInfo);
     await sleep();
     try {
@@ -321,14 +321,19 @@ class InitCommand extends Command {
       });
       const isExist = await templateNpm.exist();
       if (!isExist) {
-        await this.customSpinner("正在下载模板...", templateNpm.install);
+        await this.customSpinner("正在下载模板...", async () => {
+          await templateNpm.install();
+        });
         if (await templateNpm.exist()) log.success("模板下载成功");
         this.templateNpm = templateNpm;
       } else {
-        await this.customSpinner("正在更新模板...", templateNpm.update);
+        await this.customSpinner("正在更新模板...", async () => {
+          await templateNpm.update();
+        });
         if (await templateNpm.exist()) log.success("模板更新成功");
         this.templateNpm = templateNpm;
       }
+      if (!(await templateNpm.exist())) throw new Error("模板下载失败");
     }
   }
 

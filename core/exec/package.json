@@ -1,6 +1,6 @@
 {
   "name": "@dorsey-cli/exec",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "core exec",
   "author": "dorsey <406100205@qq.com>",
   "homepage": "https://github.com/Dorsey-CN/dorsey-cli#readme",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@dorsey-cli/log": "^1.0.0",
-    "@dorsey-cli/package": "^1.0.3",
+    "@dorsey-cli/package": "^1.0.4",
     "@dorsey-cli/request": "^1.0.0",
     "@dorsey-cli/utils": "^1.0.0"
   },

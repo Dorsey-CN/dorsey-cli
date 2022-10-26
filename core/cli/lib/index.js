@@ -57,6 +57,11 @@ function registerCommand() {
     .option("-f, --force", "是否强制创建项目", false)
     .action(exec);
 
+  program
+    .command("parse [projectName]")
+    .description("解析日志文件")
+    .action(exec);
+
   // 处理debug模式
   program.on("option:debug", function () {
     process.env.LOG_LEVEL = programOptions.debug ? "verbose" : "info";

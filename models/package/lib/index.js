@@ -76,7 +76,7 @@ class Package {
     return npminstall({
       root: this.targetPath,
       storeDir: this.storeDir,
-      registry: getDefaultREgistry(),
+      registry: getDefaultREgistry(false),
       pkgs: [{ name: this.pkgName, version: this.pkgVersion }],
     });
   }
@@ -93,7 +93,7 @@ class Package {
       await npminstall({
         root: this.targetPath,
         storeDir: this.storeDir,
-        registry: getDefaultREgistry(),
+        registry: getDefaultREgistry(false),
         pkgs: [{ name: this.pkgName, version: latestPkgVersion }],
       });
       this.pkgVersion = latestPkgVersion;

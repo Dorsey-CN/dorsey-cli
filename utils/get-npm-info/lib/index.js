@@ -13,7 +13,7 @@ const semverGt = require("semver/functions/gt");
  */
 function getNpmInfo(name, registry) {
   if (!name) return null;
-  const url = urlJoin(registry || getDefaultREgistry(), name);
+  const url = urlJoin(registry || getDefaultREgistry(false), name);
   return axios
     .get(url)
     .then((response) => {
@@ -28,7 +28,7 @@ function getNpmInfo(name, registry) {
 function getDefaultREgistry(isOrigin = true) {
   return isOrigin
     ? "https://registry.npmjs.org"
-    : "https://registry.npm.taobao.org";
+    : "https://registry.npmmirror.com";
 }
 
 /**
